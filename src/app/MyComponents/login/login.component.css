@@ -1,0 +1,21 @@
+.outer-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 200px;
+    width: auto;
+}
+
+.p-inputgroup{
+    margin-top: 20px;
+}
+
+.p-button-success{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 660px) {
+    .outer-div{
+        padding: 10px 15px;
+    }
+}
