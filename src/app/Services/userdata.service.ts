@@ -1,33 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserdataService {
 
-  constructor() { }
-  users(){
-    return [
-      {
-        name: 'Adil Khatri',
-        email: 'adil@gmail.com',
-        designation: "Software Developer"
-      },
-      {
-        name: 'John',
-        email: 'john@gmail.com',
-        designation: "Mobile App Developer"
-      },
-      {
-        name: 'Virat',
-        email: 'virat@gmail.com',
-        designation: "Business Analyst"
-      },
-      {
-        name: 'Speed',
-        email: 'speed@gmail.com',
-        designation: "Data Analyst"
-      }
-    ]
+  constructor(private http: HttpClient) { }
+
+  users() : Promise<any> {
+    return new Promise((resolve)=>{
+      lastValueFrom(this.http.get("https://jsonplaceholder.typicode.com/users")).then((res)=>{
+        // console.log(res);
+        return resolve(res);
+    });   
+    })
   }
 }

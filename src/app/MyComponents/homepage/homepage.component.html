@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>Welcome to Angular</h1>
-  <p>This is <b>{{ title }}</b></p>
-  <button pButton pRipple label="Submit" class="p-button-success"></button> 
+  <h1 class="mb-4">{{title}}</h1>
+  <input type="text" class="mr-3" pInputText placeholder="Enter new task" #task />
+  <button (click)="addTodo(task.value)" pButton pRipple class="p-button-success">Add Task</button>
+
+  <div *ngFor="let todo of todoList" class="card flex justify-content-center mt-4">
+    <p-card header={{todo.name}}>
+      <button (click)="removeTodo(todo.id)" pButton pRipple type="button" label="Remove" class="p-button-rounded p-button-danger"></button>
+    </p-card>
+  </div>
 </div>

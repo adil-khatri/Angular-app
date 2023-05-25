@@ -15,6 +15,9 @@ import { HomepageComponent } from './MyComponents/homepage/homepage.component';
 import { LoginComponent } from './MyComponents/login/login.component';
 import { FooterComponent } from './MyComponents/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     MenubarModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

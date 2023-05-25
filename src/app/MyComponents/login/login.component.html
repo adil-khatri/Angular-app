@@ -1,6 +1,6 @@
 <div class="outer-div">
   <h1>Login Here</h1>
-  <form [formGroup]="loginUser" (ngSubmit)="loginData()">
+  <form [formGroup]="loginUser" (ngSubmit)="onSubmit()">
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon">
         <i class="pi pi-user"></i>
@@ -11,8 +11,16 @@
         formControlName="username"
         pInputText
         placeholder="Username"
+        required
+        minlength="4"
       />
     </div>
+    <span
+        class="text-danger"
+        *ngIf="registerFormControl['username'].invalid && (registerFormControl['username'].dirty || registerFormControl['username'].touched)"
+      >
+        Username is required 
+    </span>
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon">
         <i class="pi pi-user"></i>
@@ -23,8 +31,17 @@
         formControlName="password"
         pInputText
         placeholder="Password"
+        required
       />
     </div>
-    <button pButton pRipple label="Submit" class="p-button-success"></button>
+    <span
+        class="text-danger"
+        *ngIf="registerFormControl['password'].invalid && (registerFormControl['password'].dirty || registerFormControl['password'].touched)"
+      >
+        Password is required 
+    </span>
+    <div>
+      <button pButton pRipple label="Submit" class="p-button-success"></button>
+    </div>
   </form>
 </div>
