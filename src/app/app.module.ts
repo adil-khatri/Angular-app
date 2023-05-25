@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { AboutComponent } from './MyComponents/about/about.component';
 import { HomepageComponent } from './MyComponents/homepage/homepage.component';
 import { LoginComponent } from './MyComponents/login/login.component';
+import { FooterComponent } from './MyComponents/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,22 +23,18 @@ import { LoginComponent } from './MyComponents/login/login.component';
     ContactComponent,
     AboutComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {path: 'contact-us', component: ContactComponent},
-      {path: '', component: HomepageComponent},
-      {path: 'about-us', component: AboutComponent},
-      {path: 'login', component: LoginComponent},
-    ]),
     AppRoutingModule,
     ButtonModule,
     SliderModule,
     FormsModule,
     MenubarModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

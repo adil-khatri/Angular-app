@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
+  contact = "contact us";
+  today = Date();
+  user = {
+    name: "Adil",
+    Age: 20
+  };
 }

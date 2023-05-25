@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  usernamevalue: string = '';
-  onKey(event: any){
-    this.usernamevalue += event.target.value;
+  loginUser= new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  })
+  loginData(){
+    console.log(this.loginUser.value);
+    
   }
 }

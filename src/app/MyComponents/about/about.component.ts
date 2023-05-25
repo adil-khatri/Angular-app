@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserdataService } from '../../Services/userdata.service'
 
 @Component({
   selector: 'app-about',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+  showTable: boolean=false;
+  users:any;
 
+  toggleShowTable(): void{
+    this.showTable = !this.showTable;
+  }
+
+  //to get service data
+  constructor( private userdata: UserdataService){
+    // console.log(userdata.users());
+    this.users = userdata.users();
+  }
 }

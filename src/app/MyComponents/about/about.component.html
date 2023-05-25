@@ -1,2 +1,18 @@
-<h1>About Us</h1>
-<p>about works!</p>
+<div class="container">
+  <h1>Employee Data</h1>
+  <button (click)='toggleShowTable()' class="btn btn-primary mb-4">See Employee Data</button>
+  <div>
+    <table style="width:100%" *ngIf='showTable'>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Designation</th>
+          </tr>
+        <tr *ngFor = "let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.designation}}</td>
+        </tr>
+    </table>
+  </div>
+</div>
