@@ -12,7 +12,7 @@ export class UserdataService {
   users() : Promise<any> {
     return new Promise((resolve)=>{
       lastValueFrom(this.http.get("https://jsonplaceholder.typicode.com/users")).then((res)=>{
-        // console.log(res);
+        console.log(res);
         return resolve(res);
     });   
     })

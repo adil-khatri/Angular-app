@@ -9,6 +9,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit{
   loginUser!: FormGroup;
   submitted:boolean = false;
+  valCheck: string[] = ['remember'];
+  password!: string;
 
   constructor(private fb: FormBuilder){
     this.loginUser = this.fb.group({
@@ -31,6 +33,11 @@ export class LoginComponent implements OnInit{
       // alert('Form Submitted succesfully!!! Check the values in browser console.');
       console.log(this.loginUser.value);
     }
+  }
+  emitData = "";
+  uData(item: any){
+    console.warn(item)
+    this.emitData = item;
   }
   }
 

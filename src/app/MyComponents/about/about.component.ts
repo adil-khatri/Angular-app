@@ -10,14 +10,17 @@ export class AboutComponent {
   showTable: boolean=false;
   users:any;
 
-  toggleShowTable(): void{
-    this.showTable = !this.showTable;
-  }
-
-  //to get service data
-  constructor( private userdata: UserdataService ){
+   //to get service data
+   constructor( private userdata: UserdataService ){
     // console.log(userdata.users());
     this.fetchUsers();
+  }
+  ngOnInit(){
+    this.fetchUsers();
+  }
+
+  toggleShowTable(): void{
+    this.showTable = !this.showTable;
   }
 
   async fetchUsers(){

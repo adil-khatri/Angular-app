@@ -1,4 +1,16 @@
-<div class="outer-div">
+<div class="card p-6">
+  <div class="card-container blue-container flex">
+    <div class="flex-1 bg-yellow-500 font-bold p-4 mb-3 text-center border-round">Hello</div>
+    <div class="flex-1 bg-blue-500 font-bold p-4 mb-3 text-center border-round mx-4">Wprld</div>
+    <div class="flex-1 bg-red-500 font-bold p-4 mb-3 text-center border-round">{{emitData}}</div>
+  </div>
+</div>
+
+
+<app-child (uDataEvent)="uData($event)"></app-child>
+
+
+<!-- <div class="outer-div">
   <h1>Login Here</h1>
   <form [formGroup]="loginUser" (ngSubmit)="onSubmit()">
     <div class="p-inputgroup">
@@ -44,4 +56,4 @@
       <button pButton pRipple label="Submit" class="p-button-success"></button>
     </div>
   </form>
-</div>
+</div> -->
