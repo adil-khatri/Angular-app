@@ -18,8 +18,7 @@ export class NavbarComponent implements OnInit {
 
   }
   ngOnInit() {  
-
-    this.stateSrv.isLoggedInUserObs.subscribe(isLoggedIn => {
+        this.stateSrv.isLoggedInUserObs.subscribe(isLoggedIn => {
         this.loggedInUser = localStorage.getItem("user");
         this.userName = JSON.parse(this.loggedInUser);
         console.warn(this.userName);
@@ -43,6 +42,7 @@ export class NavbarComponent implements OnInit {
               {
                   label: 'Our Services',
                   icon: 'pi pi-fw pi-calendar',
+                  routerLink:['user/dashboard'],
                   items: [
                       {
                           label: 'Website',
@@ -58,14 +58,14 @@ export class NavbarComponent implements OnInit {
               {
                   label: 'Login',
                   icon: 'pi pi-fw pi-lock',
-                  routerLink: "/login",
+                  routerLink: "/user/login",
                   visible: !isLoggedIn
 
               },
               {
                 label: "Signup",
                 icon: 'pi pi-fw pi-sign-in',
-                routerLink: "/signup",
+                routerLink: "/user/signup",
                 visible: !isLoggedIn
             },
             {
@@ -85,10 +85,11 @@ export class NavbarComponent implements OnInit {
           ];
     })
   }
-
+  
   signOut=()=>{
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['user/login']);
+    // location.reload();
   }
 }
 

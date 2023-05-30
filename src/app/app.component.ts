@@ -14,8 +14,6 @@ export class AppComponent implements OnInit{
   constructor(private stateSrv:StateService,private router:Router){}
 
   ngOnInit(): void {
-
-
     console.log("gjhgjgjgj");
     this.loggedInUser = localStorage.getItem("user");
     this.userName = JSON.parse(this.loggedInUser);
@@ -24,9 +22,6 @@ export class AppComponent implements OnInit{
       this.stateSrv.isLoggedInUserObs.next(true)  
     }else{
       this.stateSrv.isLoggedInUserObs.next(false)
-      this.router.navigate(['login'])
-
-    }
-    
+    } 
   }
 }

@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit{
           this.stateSrv.isLoggedIn = true;
           this.stateSrv.isLoggedInUserObs.next(true);
           localStorage.setItem("user",JSON.stringify(username));
+          this.router.navigate(['/user/dashboard']);
           this.service.add({ key: 'tst', severity: 'success', summary: 'Success', detail: 'Login Successfully' });
-        this.router.navigate(['home'])
         }else{
           this.service.add({ key: 'tst', severity: 'error', summary: 'Failed', detail: 'Invalid Credentials' });
         }

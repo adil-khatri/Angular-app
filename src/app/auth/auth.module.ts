@@ -13,11 +13,15 @@ import { SliderModule } from 'primeng/slider';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AuthRoutingModule } from './auth-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 
 
 @NgModule({
-  declarations: [SignupComponent,LoginComponent],
+  declarations: [SignupComponent,LoginComponent, DashboardComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -33,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     MenubarModule,
     InputTextModule,
     HttpClientModule,
+    RouterModule,
+    PanelMenuModule,
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }

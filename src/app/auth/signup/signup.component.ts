@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserdataService } from 'src/app/Services/userdata.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +13,7 @@ export class SignupComponent {
   registerUser: FormGroup;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private Userdata: UserdataService){
+  constructor(private fb: FormBuilder, private Userdata: UserdataService, private router: Router){
     
     this.registerUser = this.fb.group({
       username: ['', [Validators.required]],
@@ -29,11 +31,11 @@ export class SignupComponent {
       // alert('Form Submitted succesfully!!! Check the values in browser console.');
       console.log(this.registerUser.value);
       let context = this.registerUser.value;
-     this.Userdata.addUser(context).then((res:any)=>{
-       alert(res.msg+' Form Submitted succesfully!!! Check the values in browser console.');
+      this.Userdata.addUser(context).then((res:any)=>{
+      alert(res.msg+' Form Submitted succesfully!!! Check the values in browser console.');
+      this.router.navigate(['login'])
      }).catch((error)=>{
-      console.log(error  );
-      
+      console.log(error  );      
      })
     }    
   }

@@ -5,8 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class StateService {
-private isLoggedInUser: boolean = false;
-public isLoggedInUserObs=new BehaviorSubject(false);
+  private isLoggedInUser: boolean = false;
+  public isLoggedInUserObs=new BehaviorSubject(false);
+
   constructor() { }
 
   get isLoggedIn(){
@@ -16,6 +17,5 @@ public isLoggedInUserObs=new BehaviorSubject(false);
   set isLoggedIn(loginStatus: boolean){
     this.isLoggedInUser = loginStatus;
   }
-
 
 }

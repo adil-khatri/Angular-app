@@ -37,6 +37,13 @@
       "password": "ASDFLKJ",
       "cpassword": "ASDFLKJ",
       "id": 3
+    },
+    {
+      "username": "Adilk046",
+      "email": "aaaa@gmail.com",
+      "password": "1234567",
+      "cpassword": "1234567",
+      "id": 4
     }
   ]
 }

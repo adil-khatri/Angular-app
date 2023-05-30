@@ -43,13 +43,10 @@ export class UserdataService {
           }else{
             resolve({status:true, msg:"SUCCESS", data:response});
             console.log(response);
-    
-          }
-       
-
+          }      
     },(error)=>{
       reject({status:false,msg:'FAILED'})
     }) 
     })
-  }  // console.log(this.uname);
+  } 
 }
