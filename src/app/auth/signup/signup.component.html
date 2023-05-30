@@ -1,0 +1,109 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form [formGroup]="registerUser" (ngSubmit)="onSubmit()">
+
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                      <i class="pi pi-user"></i>
+                    </span>
+                    <input
+                      type="text"
+                      name="username"
+                      formControlName="username"
+                      pInputText
+                      placeholder="Username"
+                      required
+                      minlength="3"
+                    />
+                </div>
+                <span
+                    class="text-danger"
+                    *ngIf="registerFormControl['username'].invalid && (registerFormControl['username'].dirty || registerFormControl['username'].touched)"
+                >
+                    Username is required 
+                </span>
+
+                <div class="p-inputgroup mt-4">
+                    <span class="p-inputgroup-addon">
+                      <i class="pi pi-envelope"></i>
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      formControlName="email"
+                      pInputText
+                      placeholder="Email"
+                      required
+                      minlength="5"
+                    />
+                </div>
+                <span
+                    class="text-danger"
+                    *ngIf="registerFormControl['email'].invalid && (registerFormControl['email'].dirty || registerFormControl['email'].touched)"
+                >
+                    Invalid Email 
+                </span>
+
+                <div class="p-inputgroup mt-4">
+                    <span class="p-inputgroup-addon">
+                      <i class="pi pi-lock"></i>
+                    </span>
+                    <input
+                      type="password"
+                      name="password"
+                      formControlName="password"
+                      pInputText
+                      placeholder="Password"
+                      required
+                      #pass
+                    />
+                </div>
+                <span
+                    class="text-danger"
+                    *ngIf="registerFormControl['password'].invalid && (registerFormControl['password'].dirty || registerFormControl['password'].touched)"
+                >
+                    Password is required (Minimum 5 Characters)
+                </span>
+
+                <div class="p-inputgroup mt-4">
+                    <span class="p-inputgroup-addon">
+                      <i class="pi pi-lock"></i>
+                    </span>
+                    <input
+                      type="password"
+                      name="cpassword"
+                      formControlName="cpassword"
+                      pInputText
+                      placeholder="Confirm Password"
+                      required
+                      minlength="4"
+                      #cpass
+                    />
+                </div>
+                <span class="text-danger"
+                    *ngIf="pass.value !== cpass.value">
+                Confirm Password Must be Same
+                </span>
+                <div class="d-flex justify-content-center mt-4">
+                  <button type="submit"class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
+                    class="fw-bold text-body"><u>Login here</u></a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

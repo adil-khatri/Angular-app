@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "username": "adilasas",
+      "email": "fpms.tech@somaiya.edu",
+      "password": "11111111",
+      "cpassword": "11111111",
+      "id": 1
+    },
+    {
+      "username": "adilasas",
+      "email": "dddd@gmail.com",
+      "password": "123456",
+      "cpassword": "123456",
+      "id": 2
+    },
+    {
+      "username": "Harsh46",
+      "email": "harsh@somaiya.edu",
+      "password": "ASDFLKJ",
+      "cpassword": "ASDFLKJ",
+      "id": 3
+    }
+  ]
+}

@@ -7,6 +7,5 @@ import { Component , Output, EventEmitter} from '@angular/core';
 })
 export class ChildComponent {
   @Output() uDataEvent = new EventEmitter<any>();
-
-
+  
 }

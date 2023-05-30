@@ -21,9 +21,10 @@ export class HomepageComponent {
     }
     else{
       this.todoList = JSON.parse(this.localItem);
-      let item = [...this.todoList]
-      console.log(item);
-      
+      console.log(this.todoList);
+      const [i,j] = this.todoList;
+
+      console.log();
       // console.log(typeof(this.localItem));
     }
 

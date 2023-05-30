@@ -12,7 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ContactComponent } from './MyComponents/contact/contact.component';
 import { AboutComponent } from './MyComponents/about/about.component';
 import { HomepageComponent } from './MyComponents/homepage/homepage.component';
-import { LoginComponent } from './MyComponents/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { FooterComponent } from './MyComponents/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,9 +20,9 @@ import { CardModule } from 'primeng/card';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ChildComponent } from './MyComponents/child/child.component';
-
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -31,28 +31,21 @@ import { ChildComponent } from './MyComponents/child/child.component';
     ContactComponent,
     AboutComponent,
     HomepageComponent,
-    LoginComponent,
     FooterComponent,
-    ChildComponent
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ButtonModule,
-    SliderModule,
-    FormsModule,
-    MenubarModule,
-    InputTextModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    CardModule,
-    MessagesModule,
     ToastModule,
-    MessageModule,
-    CheckboxModule
+    MenubarModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+    AuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
