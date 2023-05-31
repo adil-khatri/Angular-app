@@ -8,11 +8,14 @@ import { MenuItem } from 'primeng/api';
 })
 export class DashboardComponent {
   items: MenuItem[]=[];
+  loginUserData:any;
+  loggedInUser:any;
   userName: any;
 
   constructor(){
-    this.userName = localStorage.getItem("user");
-    this.userName = JSON.parse(this.userName);
+    this.loggedInUser = localStorage.getItem("user");
+    this.loginUserData = JSON.parse(this.loggedInUser);
+    this.userName = this.loginUserData[0].currectuser;
   }
 
     ngOnInit() {

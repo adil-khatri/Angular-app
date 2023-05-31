@@ -13,6 +13,8 @@ import { UserdataService } from 'src/app/Services/userdata.service';
 })
 export class LoginComponent implements OnInit{
   loginUser!: FormGroup;
+  currentUserId: any[]= [];
+  storedUser: any[]=[];
   submitted:boolean = false;
   valCheck: string[] = ['remember'];
 
@@ -44,10 +46,15 @@ export class LoginComponent implements OnInit{
       const {username, password} = this.loginUser.value;
       this.Userdata.getUser(username,password).then(
         (res:any)=>{
-          if(res.status === true){
+          // console.log(res.data[0].id)
+          // console.warn(this.storedUser);
+          
+          if(res.status === true){       
+          this.currentUserId = res.data[0].id;
+          this.storedUser.push({id: this.currentUserId, currectuser: username})     
           this.stateSrv.isLoggedIn = true;
           this.stateSrv.isLoggedInUserObs.next(true);
-          localStorage.setItem("user",JSON.stringify(username));
+          localStorage.setItem("user",JSON.stringify(this.storedUser));
           this.router.navigate(['/user/dashboard']);
           this.service.add({ key: 'tst', severity: 'success', summary: 'Success', detail: 'Login Successfully' });
         }else{

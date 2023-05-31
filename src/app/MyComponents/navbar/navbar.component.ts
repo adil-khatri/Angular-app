@@ -12,7 +12,8 @@ import { UserdataService } from 'src/app/Services/userdata.service';
 export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
   loggedInUser:any;
-  userName:any;
+  loginUserData:any; 
+  userName!:any;
 
   constructor(private userdata: UserdataService,private router:Router,private stateSrv: StateService){
 
@@ -20,14 +21,32 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {  
         this.stateSrv.isLoggedInUserObs.subscribe(isLoggedIn => {
         this.loggedInUser = localStorage.getItem("user");
-        this.userName = JSON.parse(this.loggedInUser);
-        console.warn(this.userName);
-
+        this.loginUserData = JSON.parse(this.loggedInUser);
+        if(this.loggedInUser !== null){
+        this.userName = this.loginUserData[0].currectuser;
+        }
         this.items = [
             {
-                label: 'Home',
+                label: 'Dashboard',
+                icon: 'pi pi-fw pi-calendar',
+                routerLink:['user/dashboard'],
+                items: [
+                    {
+                        label: 'Website',
+                        icon: 'pi pi-fw pi-desktop',
+                    },
+                    {
+                        label: 'Mobile App',
+                        icon: 'pi pi-fw pi-calendar-times',
+                    }
+                ],
+                visible: isLoggedIn
+            },
+            {
+                label: 'Add Todos',
                 icon: 'pi pi-fw pi-home',
-                routerLink: "/"
+                routerLink: "/home",
+                visible: isLoggedIn
             },
             {
                   label: 'About',
@@ -38,22 +57,6 @@ export class NavbarComponent implements OnInit {
                   label: 'Contact',
                   icon: 'pi pi-fw pi-user',
                   routerLink: "/contact-us"
-              },
-              {
-                  label: 'Our Services',
-                  icon: 'pi pi-fw pi-calendar',
-                  routerLink:['user/dashboard'],
-                  items: [
-                      {
-                          label: 'Website',
-                          icon: 'pi pi-fw pi-desktop',
-                      },
-                      {
-                          label: 'Mobile App',
-                          icon: 'pi pi-fw pi-calendar-times',
-                      }
-                  ],
-                  visible: isLoggedIn
               },
               {
                   label: 'Login',
@@ -87,8 +90,9 @@ export class NavbarComponent implements OnInit {
   }
   
   signOut=()=>{
-    localStorage.clear();
+    localStorage.removeItem('user');
     this.router.navigate(['user/login']);
+    localStorage.clear();
     // location.reload();
   }
 }

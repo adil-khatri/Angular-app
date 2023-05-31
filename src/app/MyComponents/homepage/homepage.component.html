@@ -3,8 +3,8 @@
   <p-toast key="tst"></p-toast>
   <input type="text" class="mr-3" pInputText placeholder="Enter new task" #task />
   <button (click)="addTodo(task.value)" pButton pRipple class="p-button-success">Add Task</button>
-  <div *ngIf="this.todoList.length === 0" else #elsepart class="mt-4">No Todos to Display</div>
-  <div #elsepart *ngFor="let todo of todoList" class="card flex justify-content-center mt-4">
+  <div *ngIf="this.listOfTodos.length === 0" else #elsepart class="mt-4">No Todos to Display</div>
+  <div #elsepart *ngFor="let todo of listOfTodos" class="card flex justify-content-center mt-4">
     <p-card header={{todo.name}}>
       <button (click)="removeTodo(todo.id)" pButton pRipple type="button" label="Remove" class="p-button-rounded p-button-danger"></button>
     </p-card>

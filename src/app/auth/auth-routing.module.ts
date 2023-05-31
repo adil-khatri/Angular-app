@@ -9,7 +9,7 @@ import { preventBackGuard } from "../Guards/prevent-back.guard";
 
 const routes: Routes = [
     {path: 'login', canActivate:[preventBackGuard] ,component: LoginComponent},
-    {path: 'signup', component: SignupComponent},
+    {path: 'signup',canActivate:[preventBackGuard], component: SignupComponent},
     {path: 'dashboard', canActivate:[authgGuard], component: DashboardComponent}
 ]
 

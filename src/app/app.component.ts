@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
     console.log("gjhgjgjgj");
     this.loggedInUser = localStorage.getItem("user");
     this.userName = JSON.parse(this.loggedInUser);
-    console.warn(this.userName);
+    console.log(this.userName);
     if(this.loggedInUser){
       this.stateSrv.isLoggedInUserObs.next(true)  
     }else{
