@@ -1,12 +1,14 @@
 <div class="container">
   <h1 class="mb-4">{{title}}</h1>
   <p-toast key="tst"></p-toast>
-  <input type="text" class="mr-3" pInputText placeholder="Enter new task" #task />
-  <button (click)="addTodo(task.value)" pButton pRipple class="p-button-success">Add Task</button>
+  <input type="text" class="mr-3" pInputText placeholder="Enter new task" [(ngModel)]="editTask" #task />
+  <button (click)="addTodo(task.value)" pButton pRipple class="p-button-success">{{!isEdit ? 'Add Task':'Update'}}</button>
   <div *ngIf="this.listOfTodos.length === 0" else #elsepart class="mt-4">No Todos to Display</div>
-  <div #elsepart *ngFor="let todo of listOfTodos" class="card flex justify-content-center mt-4">
+  <div #elsepart *ngFor="let todo of listOfTodos;let i=index" class="card flex justify-content-center mt-4">
     <p-card header={{todo.name}}>
-      <button (click)="removeTodo(todo.id)" pButton pRipple type="button" label="Remove" class="p-button-rounded p-button-danger"></button>
+      <p>{{todo.time | date:'medium'}}</p>
+      <button (click)="editTodo(i)" pButton pRipple type="button" label="Edit" class="p-button-rounded p-button mr-2" #edit><i class="pi pi-fw pi-pencil mr-2"></i></button>
+      <button (click)="removeTodo(todo.id)" pButton pRipple type="button" label="Remove" class="p-button-rounded p-button-danger"><i class="pi pi-fw pi-trash mr-2"></i></button>
     </p-card>
   </div>
 </div>

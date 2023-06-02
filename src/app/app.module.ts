@@ -15,6 +15,7 @@ import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { ChildComponent } from './MyComponents/child/child.component';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
     HomepageComponent,
     FooterComponent,
     ChildComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { AuthModule } from './auth/auth.module';
     InputTextModule,
     ButtonModule,
     AuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

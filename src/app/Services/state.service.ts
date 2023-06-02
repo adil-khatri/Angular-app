@@ -17,5 +17,4 @@ export class StateService {
   set isLoggedIn(loginStatus: boolean){
     this.isLoggedInUser = loginStatus;
   }
-
 }

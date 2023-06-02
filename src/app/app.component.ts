@@ -14,7 +14,6 @@ export class AppComponent implements OnInit{
   constructor(private stateSrv:StateService,private router:Router){}
 
   ngOnInit(): void {
-    console.log("gjhgjgjgj");
     this.loggedInUser = localStorage.getItem("user");
     this.userName = JSON.parse(this.loggedInUser);
     console.log(this.userName);

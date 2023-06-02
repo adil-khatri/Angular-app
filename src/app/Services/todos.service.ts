@@ -32,7 +32,7 @@ export class TodosService {
             console.log(response);
           }else{
             resolve({status:true, msg:"SUCCESS", data:response});
-            console.log(response);
+            // console.log(response);
           }      
     },(error)=>{
       reject({status:false,msg:'FAILED'})
@@ -45,6 +45,16 @@ export class TodosService {
     return new Promise((resolve,reject)=>{
       this.http.delete(`http://localhost:3000/todos/${id}`, {headers}).subscribe(res=>{
         resolve(res);
+      })
+    })
+  }
+  updateTodos(data:any){
+    console.warn(data.id);
+    return new Promise((resolve,reject)=>{
+      this.http.put(`http://localhost:3000/todos/${data.id}`, data).subscribe((res)=>{
+        resolve(res);
+      },err=>{
+        reject(err);
       })
     })
   }
