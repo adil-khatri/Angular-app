@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserdataService } from '../../Services/userdata.service'
+import { LoadingService } from 'src/app/Services/loading.service';
 
 @Component({
   selector: 'app-about',
@@ -9,11 +10,14 @@ import { UserdataService } from '../../Services/userdata.service'
 export class AboutComponent {
   showTable: boolean=false;
   users:any;
+  products: any;
+  loading$ = this.loadingService.loading$;
 
    //to get service data
-   constructor( private userdata: UserdataService ){
+   constructor( private userdata: UserdataService, private loadingService: LoadingService ){
     // console.log(userdata.users());
     this.fetchUsers();
+    this.fetchProducts()
   }
   ngOnInit(){
     this.fetchUsers();
@@ -25,5 +29,11 @@ export class AboutComponent {
 
   async fetchUsers(){
     this.users = await this.userdata.users();
+  }
+  async fetchProducts(){
+    this.products = await this.userdata.getProducts();
+    this.products = this.products.products
+    console.log(this.products);
+    
   }
 }

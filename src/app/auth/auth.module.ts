@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -38,6 +38,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     InputTextModule,
     HttpClientModule,
     RouterModule,
+    MatProgressSpinnerModule,
     PanelMenuModule,
     AuthRoutingModule
   ]

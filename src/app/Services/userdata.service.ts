@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { User } from '../Models/User.model';
 
 @Injectable({
@@ -20,6 +21,16 @@ export class UserdataService {
     })
   }
 
+  getProducts() : Promise<any> {
+    return new Promise((resolve)=>{
+      lastValueFrom(this.http.get("https://dummyjson.com/products")).then((res)=>{
+        console.log(res);
+        return resolve(res);
+    });   
+    })
+  }
+
+
   addUser(context: any){
     return new Promise((resolve,reject)=>{
       this.http.post<User>('http://localhost:3000/users',context).
@@ -34,8 +45,8 @@ export class UserdataService {
   }
   getUser(username: string,password:string){
     return new Promise((resolve,reject)=>{
-      this.http.get<User>(`http://localhost:3000/users?username=${username}&&password=${password}`).
-      subscribe(
+      this.http.get<User>(`http://localhost:3000/users?username=${username}&&password=${password}`)
+      .subscribe(
         (response:any) => {
           if(response.length === 0){
             resolve({status:false, msg:"Invalid Credential"});

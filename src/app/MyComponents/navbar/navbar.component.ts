@@ -59,6 +59,11 @@ export class NavbarComponent implements OnInit {
                   routerLink: "/contact-us"
               },
               {
+                label: 'calender',
+                icon: 'pi pi-fw pi-user',
+                routerLink: "/calender"
+            },
+              {
                   label: 'Login',
                   icon: 'pi pi-fw pi-lock',
                   routerLink: "/user/login",

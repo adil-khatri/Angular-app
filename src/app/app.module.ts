@@ -16,6 +16,16 @@ import { ToastModule } from 'primeng/toast';
 import { ChildComponent } from './MyComponents/child/child.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarComponent } from './MyComponents/calendar/calendar.component';
+import { NewloginComponent } from './newlogin/newlogin.component';
+import { AuthInterceptorService } from './Services/auth-interceptor.services';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AccordionModule } from 'primeng/accordion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
+// FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
 
 @NgModule({
   declarations: [
@@ -26,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     HomepageComponent,
     FooterComponent,
     ChildComponent,
-    
+    CalendarComponent,
+    NewloginComponent    
   ],
   imports: [
     BrowserModule,
@@ -38,9 +49,18 @@ import { FormsModule } from '@angular/forms';
     InputTextModule,
     ButtonModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    FullCalendarModule,
+    AccordionModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
